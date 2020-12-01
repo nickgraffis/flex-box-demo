@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/7652f157a9.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .demo > * {
+      transition: all 1s ease;
+    }
+
+    #sub-title {
+      transition: all .5s ease-in-out;
+    }
+
+    .slide-left {
+      animation: slide-left .5s forwards;
+    }
+
+    @keyframes slide-left {
+      0% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(-1000px);
+      }
+    }
+
+    .slide-right {
+      animation: slide-right .5s forwards;
+    }
+
+    @keyframes slide-right {
+      0% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(2000px);
+      }
+    }
+  input[type="range"]::-webkit-slider-thumb:active {
+      cursor: grabbing;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+            width: 20px;
+            -webkit-appearance: none;
+  			    appearance: none;
+            height: 20px;
+            cursor: grab;
+            background: #fff;
+            border: 2px solid rgba(129, 140, 248, 1);
+            border-radius: 100%;
+            z-index: 9;
+            position: relative;
+            margin-top: -3px;
+        }
+        .fa-codepen::before {
+  background: linear-gradient(45deg, #0EBEFF, #47CF73, #AE63E4, #FCD000, #FF3C41, #76DAEF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial; /* reset Font Awesome's display:inline-block */
+}
+#table-of-contents {
+  height: 0px;
+  visibility: hidden;
+  transition: all 1s ease;
+}
+
+.fa-angle-right {
+  transition: transform 1s ease;
+}
+#loader {
+  width: 0%;
+  transition: width .5s ease;
+}
+.buttons > * {
+  transition: width 1s ease;
+}
+#search-bar {
+  transition: width .5s ease;
+}
+
+#search-bar::placeholder {
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.25rem;
+line-height: 2.5rem;
+}
+
+#search-bar {
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.25rem;
+line-height: 2.5rem;
+}
+
+
+    .buttons-wrapper {
+      transition: all .5s ease;
+    }
+
+    .style-list {
+      transition: height .5s ease;
+    }
+
+    .style-arrow {
+      transition: transform .5s ease;
+    }
+  </style>
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="w-screen">
+  <div id="loader" class="absolute bg-yellow-500 to-pink-500 z-10 h-2 top-20"></div>
+  <header class="flex p-4 mb-8 mt-2 justify-between border-b-8 border-indigo-400">
+    <div class="flex">
+      <a href="/"><span class="text-4xl transform -rotate-12 text-gray-700 inline-block"><i class="fas fa-parachute-box"></i></span></a>
+      <a href="/"><div class="text-4xl font-extrabold text-gray-700 ml-4">A Complete Guide to Flex Box</div></a>
+    </div>
+    <div>
+      <span onclick="showBasicTerms()" class="text-4xl text-gray-700 hover:text-blue-400 cursor-pointer"><i class="fas fa-book-open"></i></span>
+      <span onclick="showBackground()" class="text-4xl text-gray-700 mx-4 hover:text-green-400 cursor-pointer"><i class="fas fa-info-circle"></i></span>
+      <a href=""><span class="text-4xl inline-block transform rotate-12 text-gray-700 hover:text-purple-400 cursor-pointer"><i class="fab fa-github"></i></span></a>
+    </div>
+  </header>
+  <div id="application_wrapper">
+    <span onclick="back()" class="text-white hover:text-indigo-400 h-12 text-3xl hover:bg-white border-4 border-indigo-400 flex justify-center items-center w-12 rounded-full bg-indigo-400 cursor-pointer absolute left-20"><i class="fas fa-arrow-left"></i></span>
+    <span onclick="next()" class="text-white hover:text-indigo-400 h-12 text-3xl hover:bg-white border-4 border-indigo-400 flex justify-center items-center w-12 rounded-full bg-indigo-400 cursor-pointer absolute right-20"><i class="fas fa-arrow-right"></i></span>
+    <div class="grid grid-cols-12">
+      <div class="col-span-12">
+        <div id="sub-title-wrapper" class="mx-48 text-4xl font-extrabold text-gray-700 mb-4 flex flex-col">
+          <div class="flex items-center w-8/12">
+            <i onclick="showSearchBar()" class="fas fa-search cursor-pointer text-gray-300 hover:text-gray-500 mr-8"></i>
+            <input id="search-bar" type="text" class="appearance-none w-0 absolute z-20 ml-16 focus:outline-none" placeholder="Search...">
+            <span id="sub-hashtag" class="text-gray-300 text-4xl font-semibold mr-10 hover:text-gray-500 cursor-pointer">#</span>
+            <div id="sub-icon">
+              <div class="flex flex-wrap" style="padding: 3px;">
+                <div class="h-2 w-2 rounded-sm border-2 border-gray-300"></div>
+                <div class="h-2 w-2 rounded-sm border-2 border-gray-300"></div>
+                <div class="h-2 w-2 rounded-sm border-2 border-gray-300"></div>
+                <span class="text-sm"><i class="fas fa-long-arrow-alt-down"></i></span>
+                <span class="text-sm" style="margin-top: -5px;"><i class="fas fa-long-arrow-alt-right"></i></span>
+              </div>
+            </div><span id="sub-title">flex-direction </span><i id="carrot-show-table" onclick="showTableOfContents(event)" class="fas fa-angle-right cursor-pointer text-gray-300 hover:text-gray-500 ml-40"></i>
+          </div>
+          <div id="table-of-contents" class="absolute z-20 bg-white shadow-lg w-5/12 mt-10 ml-12 overflow-scroll rounded-xl"></div>
+        </div>
+        <div id="sub-text" class="mx-24 text-xl text-gray-500 mb-8 text-left leading-loose"></div>
+      </div>
+    </div>
+        <div class="grid grid-cols-12 items-center">
+          <div class="col-span-1 flex flex-col h-80 justify-center items-center">
+            <div onclick="addBox()" class="my-4 bg-yellow-500 text-white text-lg font-extrabold h-12 w-12 rounded flex justify-center items-center cursor-pointer hover:text-yellow-500 hover:bg-white border-4 border-yellow-500"><i class="fas fa-angle-up"></i></div>
+            <div id="box-count" class="my-4 bg-yellow-500 text-white text-lg font-extrabold h-12 w-12 rounded flex justify-center items-center ">4</div>
+            <div onclick="removeBox()" class="my-4 bg-yellow-500 text-white text-lg font-extrabold h-12 w-12 rounded flex justify-center items-center cursor-pointer hover:text-yellow-500 hover:bg-white border-4 border-yellow-500"><i class="fas fa-angle-down"></i></div>
+          </div>
+          <div class="col-span-6 flex flex-col justify-center">
+            <div class="flex">
+              <div class="flex flex-col w-full mr-2">
+                <div class="flex mb-2 mx-2">
+                  <p class="text-gray-500 text-xl font-extrabold" style="flex-grow: 1;">height</p>
+                  <p id="height-indicator" class="text-gray-500 text-xl font-semibold font-mono place-self-end">3rem;</p>
+                </div>
+                <div class="flex relative">
+                  <div id="height-bar" class="h-2 rounded-full bg-indigo-400 mb-6 absolute" style="width: 6rem;"></div>
+                  <input id="height-range" class="rounded-full appearance-none bg-gray-300 h-2 w-full mb-6" type="range" min="1" max="10" step="1" value="3" />
+                </div>
+              </div>
+              <div class="flex flex-col w-full ml-2">
+                <div class="flex jusity-between mb-2 mx-2">
+                  <p class="text-gray-500 text-xl font-extrabold" style="flex-grow: 1;">width</p>
+                  <p id="width-indicator" class="text-gray-500 text-xl font-semibold font-mono">3rem;</p>
+                </div>
+                <div class="flex relative">
+                  <div id="width-bar" class="h-2 w-0 rounded-tl-full rounded-bl-full bg-indigo-400 mb-6 absolute" style="width: 6rem;"></div>
+                  <input id="width-range" class="rounded-full appearance-none bg-gray-300 h-2 w-full" type="range" min="1" max="10" step="1" value="3" />
+                </div>
+              </div>
+            </div>
+            <div class="h-80 w-full border-indigo-400 border-4 demo" style="background-image: radial-gradient(circle at 1.5px 1.5px,#6a6a85 1.5px,transparent 0); background-size: 50.4px 76.4px; display: flex;"></div>
+          </div>
+          <div class="col-span-5 flex flex-col justify-center items-center self-start mt-3">
+            <div class="w-8/12">
+              <div id="css" onclick="changeStyle('css')" class="relative -mt-0 ml-0 bg-gray-600 font-mono transform hover:scale-110 rounded-t-xl p-4 mt-2 w-5/12 text-center text-purple-300 cursor-pointer" style="z-index: 10; transform-origin: bottom left;">CSS</div>
+              <div id="tailwind" onclick="changeStyle('tailwind')" class="relative -mt-14 bg-gray-400 transform hover:scale-110 font-mono rounded-t-xl p-4 mt-2 w-5/12 text-center cursor-pointer" style="color: #b2f5ea; transform-origin: bottom; white-space: nowrap; margin-left: 8vw;">Tailwind</div>
+            </div>
+            <div class="w-8/12 overflow-scroll bg-gray-600 style p-6 font-mono rounded-b rounded-tr border-t-2 border-t-gray-300 h-80">
+              <div class="flex w-full justify-end"><span class="text-gray-400 hover:text-gray-100 cursor-pointer"><i class="far fa-copy"></i></span></div>
+                <div class="" id="inner-code"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center mx-24 w-full my-24" id="notes"></div>
+  </div>
+  <div class="bg-gray-100 h-48 w-full mt-12 p-8">
+    <div class="grid grid-cols-12 h-full">
+      <div class="col-span-3 flex items-center h-full">
+        <p class="text-gray-400 text-md">This is a fun interactive versions of
+          <a href="" class="underline hover:text-gray-600">CSS-Tricks</a>'
+          article <a href="" class="underline hover:text-gray-600">"A Complete Guide to Flexbox"</a>.
+          Check them out
+          <a style="color: #1DA1F2;" href="https://twitter.com/css?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">@css
+            <i class="fab fa-twitter"></i></a>. This app was also made with a great deal of
+            <a href="https://tailwindcss.com" class="underline hover:text-gray-600">Tailwind CSS</a>, check them out too
+            <a style="color: #1DA1F2;" href="https://twitter.com/tailwindcss?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">@tailwindcss
+              <i class="fab fa-twitter"></i></a>.
+          </p>
+      </div>
+      <div class="col-span-6 flex items-center h-full justify-center">
+        <p class="text-gray-400 text-md">Made with <span class="text-red-500"><i class="fas fa-heart"></i></span> by <a style="color: #1DA1F2;" href="https://twitter.com/nickgraffistwit">@nickgraffis
+          <i class="fab fa-twitter"></i></a>.
+      </p></p>
+      </div>
+      <div class="col-span-3 flex flex-col items-end justify-between wrap h-full">
+        <span class="text-2xl" style="color: #EA4C89;"><i class="fab fa-dribbble"></i></span>
+        <span class="text-2xl" style="color: #EA4C89;"><i class="fab fa-codepen"></i></span>
+        <span class="text-2xl text-gray-500"><i class="fab fa-medium-m"></i></span>
+        <span class="text-2xl"><i class="fab fa-instagram"></i></span>
+      </div>
+    </div>
+  </div>
+  <div id="modal" class="absolute inset-0 bg-gray-500 bg-opacity-75 z-30 hidden">
+    <div class="bg-white border-4 border-indigo-400 rounded-lg w-6/12 absolute p-4 overflow-scroll" style="max-height: 75%;
+  top: 50%;
+  left: 50%;
+  translate-top: -50%;
+  translate-left: -50%;
+  transform: translate(-50%, -50%);">
+  <div class="flex flex-col">
+    <span class="mb-2 self-end text-gray-400 hover:text-gray-700 cursor-pointer text-xl" onclick="toggleModal()"><i class="fas fa-times"></i></span>
+    <div id="popup-content"></div>
+  </div>
+</div>
+  </div>
+  <script src="sections.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
