@@ -18,3 +18,11 @@ There are two tabs, the first shows the underlying CSS that is creating the chan
 ## Focus on a single child
 
 You can click any of your boxes to see the styles for that box alone.
+
+## Skip ahead
+
+Use the table of contents at the top to search through or browse through properties.
+
+## Keep properties on the screen
+
+If you click the { } next to each of the properties in your table of contents, those properties will persist - in addition to the properties being displayed.
