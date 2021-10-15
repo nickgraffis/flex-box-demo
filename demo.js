@@ -812,3 +812,5 @@ window.showBackground = function() {
 }
 
 renderBoxes();
+
+console.log('demo for changes to netlify site')
